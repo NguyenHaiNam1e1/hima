@@ -28,6 +28,8 @@
   <link href=" {{asset('assets/css/app-style.css')}}" rel="stylesheet"/>
   <!-- skins CSS-->
   <link href=" {{asset('assets/css/skins.css')}}" rel="stylesheet"/>
+  <!--tagsinput CSS-->
+    <link href=" {{asset('assets/css/bootstrap-tagsinput.css ')}}" rel="stylesheet" type="text/css"/>
 
 
   <link rel="stylesheet" href="{{asset('assets/plugins/summernote/dist/summernote-bs4.css')}}"/>
@@ -59,6 +61,14 @@
           <i class="zmdi zmdi-view-dashboard"></i> <span>Category</span>
         </a>
       </li>
+
+      <li>
+        <a href="{{URL::to('/admin/app_detail')}}" class="waves-effect">
+          <i class="zmdi zmdi-view-dashboard"></i> <span>App_detail</span>
+        </a>
+      </li>
+
+
      
     </ul>
    
@@ -309,6 +319,7 @@
   <!--end color switcher-->
    
   </div><!--End wrapper-->
+  <!-- <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script> -->
 
 
   <!-- Bootstrap core JavaScript-->
@@ -342,6 +353,12 @@
 
 
   <script src="{{asset('assets/plugins/summernote/dist/summernote-bs4.min.js')}}"></script>
+
+
+     <!-- tagsinput js -->
+       <script src="{{asset('assets/js/bootstrap-tagsinput.min.js ')}}" ></script>
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.2/bootstrap3-typeahead.min.js" integrity="sha512-HWlJyU4ut5HkEj0QsK/IxBCY55n5ZpskyjVlAoV9Z7XQwwkqXoYdCIC93/htL3Gu5H3R4an/S0h2NXfbZk3g7w==" crossorigin="anonymous"></script>
+       <!-- <script src="{{asset('assets/js/typeahead.bundle.js ')}}" ></script> -->
   <script>
    $('#summernoteEditor').summernote({
             height: 400,
@@ -373,7 +390,10 @@
                window.location="{{URL::to('/admin/add_playlist')}}";
             }
 
+    
     </script>
+
+        
 	
 </body>
 
