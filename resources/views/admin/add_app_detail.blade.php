@@ -116,7 +116,7 @@
                  <div class="form-group row">
                   <label for="input-8" class="col-sm-2 col-form-label">tags</label>
                   <div class="col-sm-10">
-                    <input name="tags" type="text" class="form-control typeahead"  data-role="tagsinput"  required>
+                    <input name="tags" type="text" class="form-control typeahead" id="tags"  data-role="tagsinput" required>
                   </div>
                 </div>
 
@@ -199,17 +199,6 @@
 			 </div>
 
 
-  <script>
-            var path = "{{route('autocomplete')}}"
 
-            $('input.typeahead').typeahead({
-              source: function(terms,process){
-                return $.get(path,{terms:terms},function(tags){
-                  return process(tags);
-                });
-              }
-            });
-
-          </script>
 
 @endsection

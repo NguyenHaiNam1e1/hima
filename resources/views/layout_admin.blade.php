@@ -30,6 +30,7 @@
   <link href=" {{asset('assets/css/skins.css')}}" rel="stylesheet"/>
   <!--tagsinput CSS-->
     <link href=" {{asset('assets/css/bootstrap-tagsinput.css ')}}" rel="stylesheet" type="text/css"/>
+    <link href=" {{asset('assets/css/typeaheadjs.css ')}}" rel="stylesheet" type="text/css"/>
 
 
   <link rel="stylesheet" href="{{asset('assets/plugins/summernote/dist/summernote-bs4.css')}}"/>
@@ -319,14 +320,17 @@
   <!--end color switcher-->
    
   </div><!--End wrapper-->
-  <!-- <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script> -->
+ 
 
-
+<!-- <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script> -->
   <!-- Bootstrap core JavaScript-->
+  
   <script src=" {{asset('assets/js/jquery.min.js')}}"></script>
+  
   <script src=" {{asset('assets/js/popper.min.js')}}" ></script>
+  
   <script src=" {{asset('assets/js/bootstrap.min.js')}}"></script>
-	
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.2/bootstrap3-typeahead.min.js" integrity="sha512-HWlJyU4ut5HkEj0QsK/IxBCY55n5ZpskyjVlAoV9Z7XQwwkqXoYdCIC93/htL3Gu5H3R4an/S0h2NXfbZk3g7w==" crossorigin="anonymous"></script> -->
   <!-- simplebar js -->
   <script src=" {{asset('assets/plugins/simplebar/js/simplebar.js')}}"></script>
   <!-- sidebar-menu js -->
@@ -357,9 +361,10 @@
 
      <!-- tagsinput js -->
        <script src="{{asset('assets/js/bootstrap-tagsinput.min.js ')}}" ></script>
-       <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.2/bootstrap3-typeahead.min.js" integrity="sha512-HWlJyU4ut5HkEj0QsK/IxBCY55n5ZpskyjVlAoV9Z7XQwwkqXoYdCIC93/htL3Gu5H3R4an/S0h2NXfbZk3g7w==" crossorigin="anonymous"></script>
-       <!-- <script src="{{asset('assets/js/typeahead.bundle.js ')}}" ></script> -->
+        <script src="{{asset('assets/js/typeahead.bundle.js ')}}" ></script>
+    
   <script>
+  
    $('#summernoteEditor').summernote({
             height: 400,
             tabsize: 2
@@ -393,6 +398,48 @@
     
     </script>
 
+  <script>
+            var path = "{{route('autocomplete')}}";
+
+            // $('input.typeahead').typeahead({
+
+            //   source: function(terms,process){
+            //     return $.get(path,{terms:terms},function(tags){
+            //       return process(tags);
+            //     });
+            //   }
+            // });
+
+            var tags = new Bloodhound({
+              datumTokenizer: Bloodhound.tokenizers.whitespace,
+              queryTokenizer: Bloodhound.tokenizers.whitespace,
+              // url points to a json file that contains an array of country names, see
+              // https://github.com/twitter/typeahead.js/blob/gh-pages/data/countries.json
+                  prefetch: {
+                    url:path
+                  }
+            });
+
+            tags.initialize();
+
+            $('[name="tags"]').tagsinput({
+              typeaheadjs:{
+                name:'tags',
+                source:tags.ttAdapter()
+
+              }
+            })
+
+
+
+
+
+
+
+          </script>
+
+
+          
         
 	
 </body>

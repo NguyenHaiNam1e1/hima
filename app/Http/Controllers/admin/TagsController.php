@@ -14,9 +14,12 @@ class TagsController extends Controller
     //
     public function autocomplete(Request $request)
     {
-        $tags =  Tags::select("name")
-                        ->where("name","LIKE","%{$request->terms}%")
-                        ->get();
-        return response()->json($tags);
+        // $tags =  Tags::select("name")
+        //                 ->where("name","LIKE","%{$request->terms}%")
+        //                 ->get();
+         // return response()->json($tags);
+        $tags = Tags::all()->pluck('name')->toArray();
+        return response($tags);
+    
     }
 }
