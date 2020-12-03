@@ -69,6 +69,18 @@
         </a>
       </li>
 
+       <li>
+        <a href="{{URL::to('/admin/tags')}}" class="waves-effect">
+          <i class="zmdi zmdi-view-dashboard"></i> <span>Tags</span>
+        </a>
+      </li>
+
+        <li>
+        <a href="{{URL::to('/admin/screenshot')}}" class="waves-effect">
+          <i class="zmdi zmdi-view-dashboard"></i> <span>Screenshot</span>
+        </a>
+      </li>
+
 
      
     </ul>

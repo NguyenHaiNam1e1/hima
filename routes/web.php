@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\admin\CategoryController;
+use App\Http\Controllers\admin\ScreenshotController;
 use App\Http\Controllers\admin\TagsController;
 use App\Http\Controllers\admin\App_detailController;
 use App\Http\Controllers\Controller;
@@ -54,7 +55,24 @@ Route::get('/admin/add_app_detail', [App_detailController::class,'addApp_detail'
 Route::post('/admin/save_app_detail', [App_detailController::class,'saveApp_detail']);
 Route::post('/admin/update_app_detail/{id}', [App_detailController::class,'updateApp_detail']);
 
-//autocomplete
-
+//tags
 
 Route::get('/autocomplete', [TagsController::class,'autocomplete'])->name('autocomplete');
+
+Route::get('/admin/tags', [TagsController::class,'index']);
+Route::get('/admin/delete_tags/{id}', [TagsController::class,'deleteTags']);
+Route::get('/admin/show_tags/{id}', [TagsController::class,'showTags']);
+Route::get('/admin/add_tags', [TagsController::class,'addTags']);
+
+Route::post('/admin/save_tags', [TagsController::class,'saveTags']);
+Route::post('/admin/update_tags/{id}', [TagsController::class,'updateTags']);
+
+//Screenshot
+
+Route::get('/admin/screenshot', [ScreenshotController::class,'index']);
+Route::get('/admin/delete_screenshot/{id}', [ScreenshotController::class,'deleteScreenshot']);
+Route::get('/admin/show_screenshot/{id}', [ScreenshotController::class,'showScreenshot']);
+Route::get('/admin/add_screenshot', [ScreenshotController::class,'addScreenshot']);
+
+Route::post('/admin/save_screenshot', [ScreenshotController::class,'saveScreenshot']);
+Route::post('/admin/update_screenshot/{id}', [ScreenshotController::class,'updateScreenshot']);
