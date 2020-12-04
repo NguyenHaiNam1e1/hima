@@ -28,7 +28,7 @@ use App\Http\Controllers\Controller;
 Route::get('/', [HomeController::class,'index']);
 
 
-Route::get('/detail', [HomeController::class,'detail']);
+Route::get('/detail/{id}', [HomeController::class,'detail']);
 
 
 
